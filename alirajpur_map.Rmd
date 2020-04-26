@@ -1,0 +1,35 @@
+---
+title: "alirajpur_map1"
+author: "Sreesankar Ajayan"
+date: "26 April 2020"
+output: html_document
+---
+The alirajpur village is the South_West side of Madhya Pradesh state in India.
+Using the cense of 2011 we have created map of 2 blocks in alirajpur district they are katti wadda and alirajpur.
+The below figure shows the villages in this two block and total there are 197 of them.
+```{r , eval=FALSE}
+library(leaflet)
+village_pop %>%
+  leaflet()%>%
+   addTiles()%>%
+  addMarkers(popup = village_pop$Name)
+```
+Clustering of the villages.
+```{r eval=FALSE}
+library(leaflet)
+village_pop %>%
+  leaflet()%>%
+   addTiles()%>%
+  addMarkers(clusterOptions = markerClusterOptions())
+```
+The populatation of Girla in between 6-14 are shown.
+```{r eval=FALSE}
+library(leaflet)
+village_pop %>%
+  leaflet()%>%
+   addTiles()%>%
+  addCircles(weight = 1, radius =5*village_pop$populatation_girl)%>%
+  addLegend(labels = "villages",colors = "blue")
+```
+
+
