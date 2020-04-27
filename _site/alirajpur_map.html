@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ALIRAJPUR</title>
+
+<script src="site_libs/jquery-1.12.4/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet" />
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4-compressed.js"></script>
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet" />
+<script src="site_libs/leaflet-binding-2.0.3/leaflet.js"></script>
+<link href="site_libs/leaflet-markercluster-1.0.5/MarkerCluster.css" rel="stylesheet" />
+<link href="site_libs/leaflet-markercluster-1.0.5/MarkerCluster.Default.css" rel="stylesheet" />
+<script src="site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.js"></script>
+<script src="site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.freezable.js"></script>
+<script src="site_libs/leaflet-markercluster-1.0.5/leaflet.markercluster.layersupport.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ALIRAJPUR</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="html_ali.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">ALIRAJPUR</h1>
+
+</div>
+
+
+<p>The alirajpur village is the South_West side of Madhya Pradesh state in India. Using the cense of 2011 we have created map of 2 blocks in alirajpur district they are katti wadda and alirajpur. The below figure shows the villages in this two block and total there are 197 of them.</p>
+<pre class="r"><code>library(leaflet)
+rdata_full%&gt;%
+  leaflet()%&gt;%
+   addTiles()%&gt;%
+  addMarkers(popup = rdata_full$Name)</code></pre>
+<pre><code>## Assuming &quot;long&quot; and &quot;lat&quot; are longitude and latitude, respectively</code></pre>
+<p><div id="htmlwidget-d1cc5a024f2cead8c727" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d1cc5a024f2cead8c727">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[22.3990169,22.3262876,22.4199228,22.3314804,22.2448072,22.3144007,22.2587176,22.2971884,22.3691992,22.3051857,22.3105115,22.266458,22.1922511,22.1882313,22.3947137,22.2840743,22.3433861,22.3094272,22.2178093,22.2734059,22.3506124,22.3025062,22.3970231,22.2119484,22.3123009,22.137996,22.21807,22.2714981,22.3094622,22.3663048,22.353994,22.1983025,22.260675,22.275238,22.2923606,22.3307807,22.2644797,22.2399683,22.2705398,22.2850714,22.3410737,22.2851155,22.2017315,22.3851121,22.3459622,22.231968,22.3227555,22.3421402,22.286399,22.3599087,22.2492959,22.2769938,22.3514499,22.281056,22.3685927,22.2554262,22.2693917,22.2896666,22.2589893,22.3557091,22.2841129,22.3150833,22.2378064,22.2697064,22.3330652,22.3848438,22.2041702,22.2599989,22.3297505,22.3004829,22.2485392,22.2995486,22.234739,22.2410116,22.1992569,22.285684,22.1623468,22.2770739,22.3726646,22.2801423,22.3541181,22.5083297,22.2027386,22.3480358,22.3316845,22.3262876,22.4502381,22.4625516,22.2270357,22.3535463,22.4190828,22.4618819,22.5279964,22.443777,22.4509601,22.3709312,22.4747141,22.4817157,22.31786,22.2108693,22.2369312,22.3623723,22.4318429,22.5031839,22.3545286,22.4533139,22.3018596,22.2529321,22.500448,22.4439049,22.2143311,22.1958083,22.3981996,22.5001864,22.4388027,22.3397467,22.1882648,22.435925,22.5343928,22.4983323,22.3828299,22.5161898,22.4821246,22.4738949,22.4381906,22.1926278,22.3153894,22.1778349,22.315209,22.5485792,22.5001015,22.5183289,22.523962,22.2900013,22.2227692,22.5378243,22.5132234,22.3990734,22.4405102,22.2436267,22.5164027,22.483789,22.4711217,22.46142,22.2853184,22.4882602,22.4710169,22.4496088,22.5171397,22.5250536,22.2455946,22.4328127,22.2769938,22.2644764,22.4431473,22.5341659,22.465398,22.4838913,22.1903081,22.5028761,22.4874183,22.4571771,22.4625963,22.459342,22.2201698,22.5042214,22.3085939,22.2822112,22.3562949,22.4423283,22.4723726,22.4673101,22.4759525,22.4571736,22.4764112,22.3143576,22.5134611,22.4109605,22.4109605,22.4637358,22.445472,22.1736199,22.464014,22.1945061,22.5405095,22.2183733,22.3837042,22.2933865,22.490351,22.4734749,22.4518848,22.2535029,22.2045099,22.4697712,22.2120433,22.4454057,22.3031314],[74.4467007,74.2678169,74.4232507,74.3792737,74.2942208,74.2942208,74.3176876,74.4437696,74.3499496,74.5258213,74.4613553,74.4261821,74.3792737,74.3382187,74.3734092,74.3543485,74.3528822,74.3910019,74.3440842,74.4379073,74.3968658,74.3206208,74.3968658,74.4027294,74.4203192,74.3880699,74.3763415,74.5375399,74.3323529,74.3206208,74.490661,74.4115246,74.5756196,74.3382187,74.3059546,74.490661,74.3763415,74.3778076,74.4085929,74.3792737,74.3294199,74.2619489,74.4467007,74.4232507,74.4085929,74.3997976,74.4085929,74.4584245,74.4818698,74.3734092,74.4584245,74.2971543,74.4349761,74.2795524,74.4027294,74.4320448,74.3968658,74.4261821,74.3499496,74.508242,74.4584245,74.508242,74.5492576,74.5265537,74.514102,74.3910019,74.3528822,74.4789393,74.3616798,74.2707509,74.3616798,74.4085929,74.4877306,74.3440842,74.3323529,74.3264869,74.3997976,74.505312,74.3851379,74.5668327,74.2560806,74.2326058,74.1328046,74.2824862,74.1181234,74.2678169,74.2751517,74.1372087,74.0858207,74.3088879,74.3264869,74.1739057,74.197388,74.1812442,74.1372087,74.2502122,74.2443436,74.3147545,74.2120629,74.156292,74.1269322,74.2370076,74.3382187,74.0946311,74.0858207,74.1606956,74.1386767,74.2590148,74.0388252,74.1680347,74.1328046,74.1797766,74.2912872,74.209128,74.3499496,74.0828839,74.1621634,74.1606956,74.0593872,74.1328046,74.2824862,74.0799469,74.1445487,74.1636313,74.1254641,74.2355404,74.0711359,74.1739057,74.156292,74.2003231,74.1504204,74.2311386,74.2149978,74.1650991,74.1885825,74.1797766,74.0505752,74.3294199,74.2502122,74.1650991,74.197388,74.103441,74.1504204,74.1548242,74.1181234,74.1768412,74.0916944,74.1093141,74.1181234,74.1680347,74.0975678,74.115187,74.2971543,74.1416127,74.3059546,74.0858207,74.1078459,74.1621634,74.2120629,74.1636313,74.197388,74.177575,74.1665669,74.2355404,74.2502122,74.1915177,74.2355404,74.2326058,74.103441,74.1306025,74.2208673,74.1828954,74.1841796,74.1269322,74.2032581,74.1768412,74.1680347,74.3030212,74.3030212,74.3088879,74.3294199,74.1460166,74.2824862,74.2692839,74.2355404,74.115187,74.3206208,74.0828839,74.2267367,74.1739057,74.1753734,74.2061931,74.2678169,74.1225279,74.2854199,74.2120629,74.3546218],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},["Adwada","Ambari","Ambua","Bada Undwa","Baddala","Bahdiya Ki Choki","Baheda","Bamanta","Band","Begdi","Bhanarawat","Bhawri","Bhimbayda","Bhoran","Bhordu","Bhuriya Kuwa","Bilwat","Borana","Borkuwa","Chachriyaumda","Chhota Undwa","Chichalguda","Chichlana","Chikhalkui","Choganwat","Darkali","Dhanpur","Dholkheda","Dipa Ki Choki","Doblajhiri","Dudalwat","Esdu","Fata","Gadat","Gahwan","Ghatwani","Ghunghasa","Giljhiri","Girala","Haraswat","Indarsing Ki Choki","Indi","Jamaniya","Jhora","Kaati","Kanpur","Kawthu","Khandala","Khar Kuwa","Kharkhari","Kharpai","Kherwad","Kotbu","Kukawat","Kund","Kushalwai","Lakhan Kot","Laxmani","Malwai","Masni","Mayala","Mohi","Morasa","Nanpur","Palasda","Panwani","Pujari Ki Choki","Rajawat","Ramsingh Ki Choki","Richhvi","Roddha","Saija","Sejgaon","Somkuwa","Sukhi Bawadi","Thanasemli","Thod Sindi","Titi","Wadi","Waskal","Agalgota","Agran","Akalwa","Akola","Ambadaberi","Ambari","Amkhut","Andharjhiri","Andharkanch","Arthi","Badi Sardi","Baij","Bhajiyana","Bholwat","Bhuriyaamba","Bijoriya","Bilghata","Binat","Bokadiya","Bordabra","Chandar Muli","Chandpur","Chhoti Sardi","Chimata","Chohji","Chordha","Daberi","Darkhad","Dhakkapura","Dhayana","Dindwad","Dokarbariya","Dungargaon","Dungriya","Ekdhadi","Faliyamau","Fulmal","Ghodiyadara","Ghunt","Gol Amba","Guda","Harod","Havelikheda","Indalwat","Jabbaniya","Jamla","Jhadoli","Jharkali","Jhinjhana","Jholiya","Juna Kattiwada","Kabricell","Kadwal","Kail","Kalibel","Kalmaja","Kanchhla","Kanera","Karah","Kardha","Karelimahudi","Kasatpani","Kattiwada Khas","Kavchha","Kerali","Kewda","Kewdi","Khamdaka","Kharkali","Khattal","Kheda","Kheda Bada","Kherwad","Khundar","Koha","Kohibav","Kolyari","Kotharmahua","Kumbhi","Kundola","Kusumba","Lakhawat","Limdiwat","Mandhar","Mehji","Mordha","Mordhi","Moriya Ka Bada","Moriyagaon","Moti Badoi","Motibar","Muljipura","Nakti","Nani Badoi","Nanibar","Nichawas","Padola","Panala","Panala","Panguda","Pastar","Pipal Kanch","Punyawat","Raddhu","Rathodi","Raychha","Sadli","Samra","Satpal","Sayda","Someshpura","Sorwa","Sumaniyawat","Umarwada","Wakneri","Wav","Alirajpur"],null,null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[22.137996,22.5485792],"lng":[74.0388252,74.5756196]}},"evals":[],"jsHooks":[]}</script> Clustering of the villages.</p>
+<pre class="r"><code>library(leaflet)
+rdata_full %&gt;%
+  leaflet()%&gt;%
+   addTiles()%&gt;%
+  addMarkers(clusterOptions = markerClusterOptions())</code></pre>
+<pre><code>## Assuming &quot;long&quot; and &quot;lat&quot; are longitude and latitude, respectively</code></pre>
+<p><div id="htmlwidget-a6faa36a57efb92909df" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a6faa36a57efb92909df">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addMarkers","args":[[22.3990169,22.3262876,22.4199228,22.3314804,22.2448072,22.3144007,22.2587176,22.2971884,22.3691992,22.3051857,22.3105115,22.266458,22.1922511,22.1882313,22.3947137,22.2840743,22.3433861,22.3094272,22.2178093,22.2734059,22.3506124,22.3025062,22.3970231,22.2119484,22.3123009,22.137996,22.21807,22.2714981,22.3094622,22.3663048,22.353994,22.1983025,22.260675,22.275238,22.2923606,22.3307807,22.2644797,22.2399683,22.2705398,22.2850714,22.3410737,22.2851155,22.2017315,22.3851121,22.3459622,22.231968,22.3227555,22.3421402,22.286399,22.3599087,22.2492959,22.2769938,22.3514499,22.281056,22.3685927,22.2554262,22.2693917,22.2896666,22.2589893,22.3557091,22.2841129,22.3150833,22.2378064,22.2697064,22.3330652,22.3848438,22.2041702,22.2599989,22.3297505,22.3004829,22.2485392,22.2995486,22.234739,22.2410116,22.1992569,22.285684,22.1623468,22.2770739,22.3726646,22.2801423,22.3541181,22.5083297,22.2027386,22.3480358,22.3316845,22.3262876,22.4502381,22.4625516,22.2270357,22.3535463,22.4190828,22.4618819,22.5279964,22.443777,22.4509601,22.3709312,22.4747141,22.4817157,22.31786,22.2108693,22.2369312,22.3623723,22.4318429,22.5031839,22.3545286,22.4533139,22.3018596,22.2529321,22.500448,22.4439049,22.2143311,22.1958083,22.3981996,22.5001864,22.4388027,22.3397467,22.1882648,22.435925,22.5343928,22.4983323,22.3828299,22.5161898,22.4821246,22.4738949,22.4381906,22.1926278,22.3153894,22.1778349,22.315209,22.5485792,22.5001015,22.5183289,22.523962,22.2900013,22.2227692,22.5378243,22.5132234,22.3990734,22.4405102,22.2436267,22.5164027,22.483789,22.4711217,22.46142,22.2853184,22.4882602,22.4710169,22.4496088,22.5171397,22.5250536,22.2455946,22.4328127,22.2769938,22.2644764,22.4431473,22.5341659,22.465398,22.4838913,22.1903081,22.5028761,22.4874183,22.4571771,22.4625963,22.459342,22.2201698,22.5042214,22.3085939,22.2822112,22.3562949,22.4423283,22.4723726,22.4673101,22.4759525,22.4571736,22.4764112,22.3143576,22.5134611,22.4109605,22.4109605,22.4637358,22.445472,22.1736199,22.464014,22.1945061,22.5405095,22.2183733,22.3837042,22.2933865,22.490351,22.4734749,22.4518848,22.2535029,22.2045099,22.4697712,22.2120433,22.4454057,22.3031314],[74.4467007,74.2678169,74.4232507,74.3792737,74.2942208,74.2942208,74.3176876,74.4437696,74.3499496,74.5258213,74.4613553,74.4261821,74.3792737,74.3382187,74.3734092,74.3543485,74.3528822,74.3910019,74.3440842,74.4379073,74.3968658,74.3206208,74.3968658,74.4027294,74.4203192,74.3880699,74.3763415,74.5375399,74.3323529,74.3206208,74.490661,74.4115246,74.5756196,74.3382187,74.3059546,74.490661,74.3763415,74.3778076,74.4085929,74.3792737,74.3294199,74.2619489,74.4467007,74.4232507,74.4085929,74.3997976,74.4085929,74.4584245,74.4818698,74.3734092,74.4584245,74.2971543,74.4349761,74.2795524,74.4027294,74.4320448,74.3968658,74.4261821,74.3499496,74.508242,74.4584245,74.508242,74.5492576,74.5265537,74.514102,74.3910019,74.3528822,74.4789393,74.3616798,74.2707509,74.3616798,74.4085929,74.4877306,74.3440842,74.3323529,74.3264869,74.3997976,74.505312,74.3851379,74.5668327,74.2560806,74.2326058,74.1328046,74.2824862,74.1181234,74.2678169,74.2751517,74.1372087,74.0858207,74.3088879,74.3264869,74.1739057,74.197388,74.1812442,74.1372087,74.2502122,74.2443436,74.3147545,74.2120629,74.156292,74.1269322,74.2370076,74.3382187,74.0946311,74.0858207,74.1606956,74.1386767,74.2590148,74.0388252,74.1680347,74.1328046,74.1797766,74.2912872,74.209128,74.3499496,74.0828839,74.1621634,74.1606956,74.0593872,74.1328046,74.2824862,74.0799469,74.1445487,74.1636313,74.1254641,74.2355404,74.0711359,74.1739057,74.156292,74.2003231,74.1504204,74.2311386,74.2149978,74.1650991,74.1885825,74.1797766,74.0505752,74.3294199,74.2502122,74.1650991,74.197388,74.103441,74.1504204,74.1548242,74.1181234,74.1768412,74.0916944,74.1093141,74.1181234,74.1680347,74.0975678,74.115187,74.2971543,74.1416127,74.3059546,74.0858207,74.1078459,74.1621634,74.2120629,74.1636313,74.197388,74.177575,74.1665669,74.2355404,74.2502122,74.1915177,74.2355404,74.2326058,74.103441,74.1306025,74.2208673,74.1828954,74.1841796,74.1269322,74.2032581,74.1768412,74.1680347,74.3030212,74.3030212,74.3088879,74.3294199,74.1460166,74.2824862,74.2692839,74.2355404,74.115187,74.3206208,74.0828839,74.2267367,74.1739057,74.1753734,74.2061931,74.2678169,74.1225279,74.2854199,74.2120629,74.3546218],null,null,null,{"interactive":true,"draggable":false,"keyboard":true,"title":"","alt":"","zIndexOffset":0,"opacity":1,"riseOnHover":false,"riseOffset":250},null,null,{"showCoverageOnHover":true,"zoomToBoundsOnClick":true,"spiderfyOnMaxZoom":true,"removeOutsideVisibleBounds":true,"spiderLegPolylineOptions":{"weight":1.5,"color":"#222","opacity":0.5},"freezeAtZoom":false},null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[22.137996,22.5485792],"lng":[74.0388252,74.5756196]}},"evals":[],"jsHooks":[]}</script> The populatation of Girla in between 6-14 are shown.</p>
+<pre class="r"><code>library(leaflet)
+rdata_full %&gt;%
+  leaflet()%&gt;%
+   addTiles()%&gt;%
+  addCircles(weight = 1, radius =5*rdata_full$populatation_girl)%&gt;%
+  addLegend(labels = &quot;villages&quot;,colors = &quot;blue&quot;)</code></pre>
+<pre><code>## Assuming &quot;long&quot; and &quot;lat&quot; are longitude and latitude, respectively</code></pre>
+<div id="htmlwidget-a93041bb9bf4c4c3697b" style="width:672px;height:480px;" class="leaflet html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a93041bb9bf4c4c3697b">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addTiles","args":["//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",null,null,{"minZoom":0,"maxZoom":18,"tileSize":256,"subdomains":"abc","errorTileUrl":"","tms":false,"noWrap":false,"zoomOffset":0,"zoomReverse":false,"opacity":1,"zIndex":1,"detectRetina":false,"attribution":"&copy; <a href=\"http://openstreetmap.org\">OpenStreetMap<\/a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA<\/a>"}]},{"method":"addCircles","args":[[22.3990169,22.3262876,22.4199228,22.3314804,22.2448072,22.3144007,22.2587176,22.2971884,22.3691992,22.3051857,22.3105115,22.266458,22.1922511,22.1882313,22.3947137,22.2840743,22.3433861,22.3094272,22.2178093,22.2734059,22.3506124,22.3025062,22.3970231,22.2119484,22.3123009,22.137996,22.21807,22.2714981,22.3094622,22.3663048,22.353994,22.1983025,22.260675,22.275238,22.2923606,22.3307807,22.2644797,22.2399683,22.2705398,22.2850714,22.3410737,22.2851155,22.2017315,22.3851121,22.3459622,22.231968,22.3227555,22.3421402,22.286399,22.3599087,22.2492959,22.2769938,22.3514499,22.281056,22.3685927,22.2554262,22.2693917,22.2896666,22.2589893,22.3557091,22.2841129,22.3150833,22.2378064,22.2697064,22.3330652,22.3848438,22.2041702,22.2599989,22.3297505,22.3004829,22.2485392,22.2995486,22.234739,22.2410116,22.1992569,22.285684,22.1623468,22.2770739,22.3726646,22.2801423,22.3541181,22.5083297,22.2027386,22.3480358,22.3316845,22.3262876,22.4502381,22.4625516,22.2270357,22.3535463,22.4190828,22.4618819,22.5279964,22.443777,22.4509601,22.3709312,22.4747141,22.4817157,22.31786,22.2108693,22.2369312,22.3623723,22.4318429,22.5031839,22.3545286,22.4533139,22.3018596,22.2529321,22.500448,22.4439049,22.2143311,22.1958083,22.3981996,22.5001864,22.4388027,22.3397467,22.1882648,22.435925,22.5343928,22.4983323,22.3828299,22.5161898,22.4821246,22.4738949,22.4381906,22.1926278,22.3153894,22.1778349,22.315209,22.5485792,22.5001015,22.5183289,22.523962,22.2900013,22.2227692,22.5378243,22.5132234,22.3990734,22.4405102,22.2436267,22.5164027,22.483789,22.4711217,22.46142,22.2853184,22.4882602,22.4710169,22.4496088,22.5171397,22.5250536,22.2455946,22.4328127,22.2769938,22.2644764,22.4431473,22.5341659,22.465398,22.4838913,22.1903081,22.5028761,22.4874183,22.4571771,22.4625963,22.459342,22.2201698,22.5042214,22.3085939,22.2822112,22.3562949,22.4423283,22.4723726,22.4673101,22.4759525,22.4571736,22.4764112,22.3143576,22.5134611,22.4109605,22.4109605,22.4637358,22.445472,22.1736199,22.464014,22.1945061,22.5405095,22.2183733,22.3837042,22.2933865,22.490351,22.4734749,22.4518848,22.2535029,22.2045099,22.4697712,22.2120433,22.4454057,22.3031314],[74.4467007,74.2678169,74.4232507,74.3792737,74.2942208,74.2942208,74.3176876,74.4437696,74.3499496,74.5258213,74.4613553,74.4261821,74.3792737,74.3382187,74.3734092,74.3543485,74.3528822,74.3910019,74.3440842,74.4379073,74.3968658,74.3206208,74.3968658,74.4027294,74.4203192,74.3880699,74.3763415,74.5375399,74.3323529,74.3206208,74.490661,74.4115246,74.5756196,74.3382187,74.3059546,74.490661,74.3763415,74.3778076,74.4085929,74.3792737,74.3294199,74.2619489,74.4467007,74.4232507,74.4085929,74.3997976,74.4085929,74.4584245,74.4818698,74.3734092,74.4584245,74.2971543,74.4349761,74.2795524,74.4027294,74.4320448,74.3968658,74.4261821,74.3499496,74.508242,74.4584245,74.508242,74.5492576,74.5265537,74.514102,74.3910019,74.3528822,74.4789393,74.3616798,74.2707509,74.3616798,74.4085929,74.4877306,74.3440842,74.3323529,74.3264869,74.3997976,74.505312,74.3851379,74.5668327,74.2560806,74.2326058,74.1328046,74.2824862,74.1181234,74.2678169,74.2751517,74.1372087,74.0858207,74.3088879,74.3264869,74.1739057,74.197388,74.1812442,74.1372087,74.2502122,74.2443436,74.3147545,74.2120629,74.156292,74.1269322,74.2370076,74.3382187,74.0946311,74.0858207,74.1606956,74.1386767,74.2590148,74.0388252,74.1680347,74.1328046,74.1797766,74.2912872,74.209128,74.3499496,74.0828839,74.1621634,74.1606956,74.0593872,74.1328046,74.2824862,74.0799469,74.1445487,74.1636313,74.1254641,74.2355404,74.0711359,74.1739057,74.156292,74.2003231,74.1504204,74.2311386,74.2149978,74.1650991,74.1885825,74.1797766,74.0505752,74.3294199,74.2502122,74.1650991,74.197388,74.103441,74.1504204,74.1548242,74.1181234,74.1768412,74.0916944,74.1093141,74.1181234,74.1680347,74.0975678,74.115187,74.2971543,74.1416127,74.3059546,74.0858207,74.1078459,74.1621634,74.2120629,74.1636313,74.197388,74.177575,74.1665669,74.2355404,74.2502122,74.1915177,74.2355404,74.2326058,74.103441,74.1306025,74.2208673,74.1828954,74.1841796,74.1269322,74.2032581,74.1768412,74.1680347,74.3030212,74.3030212,74.3088879,74.3294199,74.1460166,74.2824862,74.2692839,74.2355404,74.115187,74.3206208,74.0828839,74.2267367,74.1739057,74.1753734,74.2061931,74.2678169,74.1225279,74.2854199,74.2120629,74.3546218],[1170.4,1395.2,3473.6,1732,2967.2,581.6,1409.6,707.2,1979.2,1244,1399.2,873.6,725.6,490.4,1389.6,241.6,963.2,544.8,940,691.2,722.4,1181.6,651.2,1046.4,536.8,673.6,577.6,891.2,752,504.8,1142.4,884.8,2205.6,930.4,1579.2,1252,1880,325.6,2161.6,1472.8,963.2,653.6,1549.6,925.6,402.4,1217.6,1288.8,2977.6,1978.4,1550.4,1908,466.4,1481.6,557.6,865.6,551.2,544.8,767.2,656.8,962.4,1058.4,399.2,1863.2,199.2,1195.2,512,720.8,1610.4,808,1694.4,898.4,888.8,3247.2,908,702.4,604.8,3186.4,2184.8,1002.4,635.2,1451.2,384.8,1025.6,2320,1789.6,1395.2,1735.2,108,2353.6,614.4,1173.6,237.6,288,500.8,967.2,733.6,34.4,372,3317.6,74.4,213.6,2508.8,710.4,191.2,360.8,null,180.8,1883.2,266.4,1010.4,1768,162.4,942.4,219.2,448.8,976,1120,555.2,290.4,510.4,1968,254.4,558.4,346.4,593.6,582.4,1486.4,926.4,468.8,402.4,220.8,414.4,738.4,1020,1006.4,369.6,391.2,713.6,417.6,575.2,378.4,305.6,1866.4,1164.8,864.8,112.8,222.4,941.6,412.8,119.2,827.2,608.8,466.4,599.2,1135.2,null,186.4,196,744,null,158.4,158.4,104,568.8,671.2,396,1464,832.8,723.2,874.4,160.8,142.4,104,600,120,243.2,193.6,496.8,496.8,464.8,902.4,208,1477.6,746.4,920,404,291.2,650.4,64.8,306.4,243.2,4116,805.6,190.4,516.8,991.2,5349.6],null,null,{"interactive":true,"className":"","stroke":true,"color":"#03F","weight":1,"opacity":0.5,"fill":true,"fillColor":"#03F","fillOpacity":0.2},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null,null]},{"method":"addLegend","args":[{"colors":["blue"],"labels":["villages"],"na_color":null,"na_label":"NA","opacity":0.5,"position":"topright","type":"unknown","title":null,"extra":null,"layerId":null,"className":"info legend","group":null}]}],"limits":{"lat":[22.137996,22.5485792],"lng":[74.0388252,74.5756196]}},"evals":[],"jsHooks":[]}</script>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
