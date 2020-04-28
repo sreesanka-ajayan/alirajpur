@@ -6,6 +6,8 @@ The alirajpur village is the South_West side of Madhya Pradesh state in India.
 Using the cense of 2011 we have created map of 2 blocks in alirajpur district they are katti wadda and alirajpur.
 The below figure shows the villages in this two block and total there are 197 of them.
 ```{r}
+library(readxl)
+rdata_full <- read_excel("rdata_full.xls")
 library(leaflet)
 rdata_full%>%
   leaflet()%>%
