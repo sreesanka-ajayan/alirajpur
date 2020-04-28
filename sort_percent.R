@@ -21,3 +21,16 @@ Percent_out<-function(vect){
 
 #calling and storing the data
 populatation_girl<-sapply(pop_lost,Percent_out)
+
+
+up_sheet<- cbind(vilage_N_copy_,populatation_girl)
+install.packages("xlsx")
+library("xlsx")
+write.xlsx(up_sheet, "vilage_GT1.xls", sheetName = "girl_per", 
+           col.names = TRUE, row.names = TRUE, append = FALSE)
+
+library(readxl)
+village_pop <- read_excel("vilage_GT1.xls")
+View(village_lef )
+
+

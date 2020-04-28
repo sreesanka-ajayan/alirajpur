@@ -1,0 +1,74 @@
+---
+title: "leaflet"
+author: "sree"
+date: "26 April 2020"
+output: html_document
+---
+
+```{r , echo=FALSE}
+library(leaflet)
+my_map <- leaflet()%>%
+  addTiles()
+my_map
+
+```
+
+```{r, eval=FALSE}
+library(leaflet)
+my_map2 <- leaflet()%>%
+   addTiles()%>%
+  addMarkers(lat = 9.093628,lng = 76.492107, popup = "Centre for Research in Advanced Technologies for Education" )
+my_map2
+
+
+```
+
+
+```{r}
+library(leaflet)
+vilage_lef %>%
+  leaflet()%>%
+   addTiles()%>%
+  addMarkers(popup = vilage_lef$Name)
+```
+
+```{r}
+library(leaflet)
+vill_Icon <- makeIcon(iconUrl = "https://www.nicepng.com/png/detail/302-3020661_adoption-icon-village-housecall.png",
+  iconWidth = 20, iconHeight = 20,iconAnchorX = 22, iconAnchorY = 94)
+
+vilage_lef %>%
+  leaflet()%>%
+   addTiles()%>%
+  addMarkers(icon = vill_Icon)
+```
+
+
+```{r, eval=FALSE}
+library(leaflet)
+creat_cite <- "<a href=https://www.amrita.edu/center/create </a>"
+my_map3 <- leaflet()%>%
+   addTiles()%>%
+  addMarkers(lat = 9.093628,lng = 76.492107, popup = creat_cite)
+my_map3
+
+```
+
+```{r, eval=FALSE}
+library(leaflet)
+vilage_lef %>%
+  leaflet()%>%
+   addTiles()%>%
+  addMarkers(clusterOptions = markerClusterOptions())
+
+```
+
+```{r, eval=FALSE}
+library(leaflet)
+vilage_lef %>%
+  leaflet()%>%
+   addTiles()%>%
+  addCircles(weight = 1, radius =5*vilage_lef$populatation_girl)%>%
+  addLegend(labels = "villages",colors = "blue")
+```
+

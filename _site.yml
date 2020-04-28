@@ -1,0 +1,9 @@
+name: "ALIRAJPUR"
+navbar:
+  title: "ALIRAJPUR"
+  left:
+    - text: "Home"
+      href: html_ali.html
+    - text: "About"
+      href: about.html
+     
