@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>sample_kerala.utf8</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">ALIRAJPUR</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="html_ali.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="sample_kerala.html">Sample study</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p>title: “Sample study” author: “Sree Sankar” date: &quot;&quot; output: html_document —</p>
+<div id="kerala-network-study" class="section level1">
+<h1>kerala network study</h1>
+<p>Let the kerala network is stored in the variable name “nw”</p>
+<p>nw&lt;-kerala_network summary(nw)</p>
+<pre><code>##  Network attributes:
+##   vertices = 100 
+##   directed = TRUE 
+##   hyper = FALSE 
+##   loops = FALSE 
+##   multiple = FALSE 
+##   bipartite = FALSE 
+##   title = comm9.net 
+##   total edges= 190 
+##     missing edges= 0 
+##     non-missing edges= 190 
+## 
+##  Vertex attribute names: 
+##     age gender vertex.names 
+## 
+##  Edge attribute names not shown</code></pre>
+<p>plot(Kerala_network)</p>
+<pre class="r"><code> age_nw&lt;- nw %v% &#39;age&#39;
+gender_nw&lt;- nw %v% &#39;gender&#39;
+plot(nw,vertex.cex=age_nw/20,vertex.col=gender_nw)</code></pre>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>The bar ploat</p>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>The degree ploat</p>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>Now to study the “egrm”</p>
+<pre><code>## 
+## ==========================
+## Summary of model fit
+## ==========================
+## 
+## Formula:   nw ~ edges
+## 
+## Iterations:  7 out of 20 
+## 
+## Monte Carlo MLE Results:
+##       Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges -3.93389    0.07325      0   -53.7   &lt;1e-04 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##      Null Deviance: 13724  on 9900  degrees of freedom
+##  Residual Deviance:  1879  on 9899  degrees of freedom
+##  
+## AIC: 1881    BIC: 1888    (Smaller is better.)</code></pre>
+<p>How to interpret this model?</p>
+<pre class="r"><code>model_k1</code></pre>
+<pre><code>## 
+## MLE Coefficients:
+##  edges  
+## -3.934</code></pre>
+<p>The log-odds of any tie occurring is:</p>
+<p>= -3.93389 × change in the number of ties = -3.93389 × 1 for all ties, since the addition of any tie to the network changes the number of ties by 1! Corresponding probability is:</p>
+<pre><code>            exp(-3.93389)/(1 + exp(-3.93389))
+            = 0.01919
+            </code></pre>
+<p>which is what you would expect, since there are 190 in our network out of the total possible 9900 ties; i.e 190/9900</p>
+<div id="a-differential-homophily-effect-for-age-and-genter." class="section level3">
+<h3>A differential homophily effect for age and genter.</h3>
+<pre><code>## Warning: `set_attrs()` is deprecated as of rlang 0.3.0
+## This warning is displayed once per session.</code></pre>
+<pre><code>## 
+## ==========================
+## Summary of model fit
+## ==========================
+## 
+## Formula:   nw ~ edges + nodefactor(&quot;gender&quot;)
+## 
+## Iterations:  7 out of 20 
+## 
+## Monte Carlo MLE Results:
+##                     Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges               -3.89874    0.12259      0 -31.803   &lt;1e-04 ***
+## nodefactor.gender.2 -0.03695    0.10430      0  -0.354    0.723    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##      Null Deviance: 13724  on 9900  degrees of freedom
+##  Residual Deviance:  1878  on 9898  degrees of freedom
+##  
+## AIC: 1882    BIC: 1897    (Smaller is better.)</code></pre>
+<p>Yes, there is a significant negative gender effect on the probability of a tie.</p>
+<pre class="r"><code>model_k2.1 &lt;- ergm(nw~ edges + nodematch(&quot;age&quot;, diff = TRUE))
+summary(model_k2.1)</code></pre>
+<pre><code>## 
+## ==========================
+## Summary of model fit
+## ==========================
+## 
+## Formula:   nw ~ edges + nodematch(&quot;age&quot;, diff = TRUE)
+## 
+## Iterations:  7 out of 20 
+## 
+## Monte Carlo MLE Results:
+##                  Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges            -4.08502    0.08022      0 -50.921  &lt; 1e-04 ***
+## nodematch.age.8      -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.9   2.47558    1.09838      0   2.254  0.02421 *  
+## nodematch.age.10     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.11     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.12     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.13  2.78574    0.33540      0   8.306  &lt; 1e-04 ***
+## nodematch.age.14     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.15     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.16  3.39187    0.61760      0   5.492  &lt; 1e-04 ***
+## nodematch.age.17  2.47558    0.77874      0   3.179  0.00148 ** 
+## nodematch.age.18  2.47558    0.77874      0   3.179  0.00148 ** 
+## nodematch.age.20     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.21     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.22  1.68712    1.04754      0   1.611  0.10728    
+## nodematch.age.23     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.24     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.25     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.26  1.08929    0.72900      0   1.494  0.13512    
+## nodematch.age.27     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.28     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.29     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.30     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.31     -Inf    0.00000      0    -Inf  &lt; 1e-04 ***
+## nodematch.age.32  1.68712    1.04754      0   1.611  0.10728    
+## nodematch.age.33  1.14058    1.02911      0   1.108  0.26773    
+## nodematch.age.34  2.47558    0.77874      0   3.179  0.00148 ** 
+## nodematch.age.36  1.52007    0.60449      0   2.515  0.01192 *  
+## nodematch.age.37  4.08502    1.41649      0   2.884  0.00393 ** 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##      Null Deviance: 13724  on 9900  degrees of freedom
+##  Residual Deviance:  1935  on 9871  degrees of freedom
+##  
+## AIC: 1993    BIC: 2202    (Smaller is better.) 
+## 
+##  Warning: The following terms have infinite coefficient estimates:
+##   nodematch.age.8 nodematch.age.10 nodematch.age.11 nodematch.age.12 nodematch.age.14 nodematch.age.15 nodematch.age.20 nodematch.age.21 nodematch.age.23 nodematch.age.24 nodematch.age.25 nodematch.age.27 nodematch.age.28 nodematch.age.29 nodematch.age.30 nodematch.age.31</code></pre>
+<p>from this result the people of age 16 and 37 tend to intract with each other more. And there are coefficients estimated as -Inf these is becouse people form no homophilous (within-group) ties.</p>
+</div>
+<div id="effect-of-the-age-in-the-probability" class="section level3">
+<h3>Effect of the age in the probability</h3>
+<pre><code>## 
+## ==========================
+## Summary of model fit
+## ==========================
+## 
+## Formula:   nw ~ edges + nodecov(&quot;age&quot;)
+## 
+## Iterations:  6 out of 20 
+## 
+## Monte Carlo MLE Results:
+##              Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges       -3.015101   0.269480      0 -11.189  &lt; 1e-04 ***
+## nodecov.age -0.021167   0.006181      0  -3.424 0.000616 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##      Null Deviance: 13724  on 9900  degrees of freedom
+##  Residual Deviance:  1867  on 9898  degrees of freedom
+##  
+## AIC: 1871    BIC: 1885    (Smaller is better.)</code></pre>
+<p>-0.021167 shows that the intrection between the people in different age is less.</p>
+</div>
+<div id="network-simulation" class="section level2">
+<h2>Network simulation</h2>
+<p>Here we try to stimulate random exponential graph wth coefficent calculated from egrm. First lest try for simple model by considering the coeffecrnt of the edge:</p>
+<pre class="r"><code>model_k1.sim &lt;- simulate(model_k1,nsim=3)</code></pre>
+<p>we have stimulated 3 random graph they are</p>
+<pre><code>##  Network attributes:
+##   vertices = 100 
+##   directed = TRUE 
+##   hyper = FALSE 
+##   loops = FALSE 
+##   multiple = FALSE 
+##   bipartite = FALSE 
+##   title = comm9.net 
+##   total edges= 205 
+##     missing edges= 0 
+##     non-missing edges= 205 
+## 
+##  Vertex attribute names: 
+##     age gender vertex.names 
+## 
+## No edge attributes</code></pre>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-12-1.png" width="672" /></p>
+<pre><code>##  Network attributes:
+##   vertices = 100 
+##   directed = TRUE 
+##   hyper = FALSE 
+##   loops = FALSE 
+##   multiple = FALSE 
+##   bipartite = FALSE 
+##   title = comm9.net 
+##   total edges= 179 
+##     missing edges= 0 
+##     non-missing edges= 179 
+## 
+##  Vertex attribute names: 
+##     age gender vertex.names 
+## 
+## No edge attributes</code></pre>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-12-2.png" width="672" /></p>
+<pre><code>##  Network attributes:
+##   vertices = 100 
+##   directed = TRUE 
+##   hyper = FALSE 
+##   loops = FALSE 
+##   multiple = FALSE 
+##   bipartite = FALSE 
+##   title = comm9.net 
+##   total edges= 173 
+##     missing edges= 0 
+##     non-missing edges= 173 
+## 
+##  Vertex attribute names: 
+##     age gender vertex.names 
+## 
+## No edge attributes</code></pre>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-12-3.png" width="672" /></p>
+<p>Lets try the egrm for a large sample size of 30000</p>
+<pre><code>## Sample statistics summary:
+## 
+## Iterations = 16384:4209664
+## Thinning interval = 1024 
+## Number of chains = 1 
+## Sample size per chain = 4096 
+## 
+## 1. Empirical mean and standard deviation for each variable,
+##    plus standard error of the mean:
+## 
+##                    Mean     SD Naive SE Time-series SE
+## edges            -3.114 15.647  0.24448         0.7461
+## mutual           -1.917  6.034  0.09428         0.3688
+## nodematch.gender -2.885 12.643  0.19755         0.6567
+## absdiff.age      -4.125 77.722  1.21441         2.2896
+## 
+## 2. Quantiles for each variable:
+## 
+##                    2.5% 25%  50% 75% 97.5%
+## edges             -34.0 -14 -3.0   8    27
+## mutual            -14.0  -6 -2.0   2    10
+## nodematch.gender  -28.0 -11 -3.0   6    21
+## absdiff.age      -166.6 -56 -1.5  49   140
+## 
+## 
+## Sample statistics cross-correlations:
+##                      edges    mutual nodematch.gender absdiff.age
+## edges            1.0000000 0.7415515        0.7869941   0.7013354
+## mutual           0.7415515 1.0000000        0.6211710   0.3961903
+## nodematch.gender 0.7869941 0.6211710        1.0000000   0.5515828
+## absdiff.age      0.7013354 0.3961903        0.5515828   1.0000000
+## 
+## Sample statistics auto-correlation:
+## Chain 1 
+##              edges    mutual nodematch.gender absdiff.age
+## Lag 0    1.0000000 1.0000000        1.0000000   1.0000000
+## Lag 1024 0.5477378 0.8589355        0.6192639   0.2798268
+## Lag 2048 0.4577305 0.7440765        0.5234336   0.2016072
+## Lag 3072 0.4088207 0.6502033        0.4626111   0.1902924
+## Lag 4096 0.3558751 0.5751566        0.4259728   0.1439806
+## Lag 5120 0.3154188 0.5072496        0.3745489   0.1247927
+## 
+## Sample statistics burn-in diagnostic (Geweke):
+## Chain 1 
+## 
+## Fraction in 1st window = 0.1
+## Fraction in 2nd window = 0.5 
+## 
+##            edges           mutual nodematch.gender      absdiff.age 
+##           0.7782           0.5809           1.2684           0.0780 
+## 
+## Individual P-values (lower = worse):
+##            edges           mutual nodematch.gender      absdiff.age 
+##        0.4364370        0.5612867        0.2046491        0.9378318 
+## Joint P-value (lower = worse):  0.3463779 .</code></pre>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-13-1.png" width="672" /><img src="sample_kerala_files/figure-html/unnamed-chunk-13-2.png" width="672" /></p>
+<pre><code>## 
+## MCMC diagnostics shown here are from the last round of simulation, prior to computation of final parameter estimates. Because the final estimates are refinements of those used for this simulation run, these diagnostics may understate model performance. To directly assess the performance of the final model on in-model statistics, please use the GOF command: gof(ergmFitObject, GOF=~model).</code></pre>
+<pre><code>## 
+## ==========================
+## Summary of model fit
+## ==========================
+## 
+## Formula:   nw ~ edges + mutual + nodematch(&quot;gender&quot;) + absdiff(&quot;age&quot;)
+## 
+## Iterations:  2 out of 20 
+## 
+## Monte Carlo MLE Results:
+##                  Estimate Std. Error MCMC % z value Pr(&gt;|z|)    
+## edges             -3.4045     0.1468      0 -23.189  &lt; 1e-04 ***
+## mutual             3.2944     0.2571      0  12.814  &lt; 1e-04 ***
+## nodematch.gender   0.4058     0.1289      0   3.149  0.00164 ** 
+## absdiff.age       -0.1822     0.0187      0  -9.741  &lt; 1e-04 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##      Null Deviance: 13724  on 9900  degrees of freedom
+##  Residual Deviance:  1522  on 9896  degrees of freedom
+##  
+## AIC: 1530    BIC: 1558    (Smaller is better.)</code></pre>
+</div>
+</div>
+<div id="goodness-of-fit" class="section level1">
+<h1>Goodness of fit</h1>
+<pre class="r"><code>m1_k.gof &lt;- gof(m1_k)
+plot(m1_k.gof)</code></pre>
+<p><img src="sample_kerala_files/figure-html/unnamed-chunk-14-1.png" width="672" /><img src="sample_kerala_files/figure-html/unnamed-chunk-14-2.png" width="672" /><img src="sample_kerala_files/figure-html/unnamed-chunk-14-3.png" width="672" /><img src="sample_kerala_files/figure-html/unnamed-chunk-14-4.png" width="672" /><img src="sample_kerala_files/figure-html/unnamed-chunk-14-5.png" width="672" /></p>
+<p>title: “kerala” author: “sree” date: “29 May 2020” output: html_document —</p>
+<div id="r-markdown" class="section level2">
+<h2>R Markdown</h2>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:</p>
+<pre class="r"><code>summary(cars)</code></pre>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</div>
+<div id="including-plots" class="section level2">
+<h2>Including Plots</h2>
+<p>You can also embed plots, for example:</p>
+<p><img src="sample_kerala_files/figure-html/pressure-1.png" width="672" /></p>
+<p>Note that the <code>echo = FALSE</code> parameter was added to the code chunk to prevent printing of the R code that generated the plot.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

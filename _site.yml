@@ -6,4 +6,6 @@ navbar:
       href: html_ali.html
     - text: "About"
       href: about.html
+    - text: "Sample study"
+      href: sample_kerala.html
      
